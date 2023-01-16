@@ -95,25 +95,25 @@ describe("Todo test suite", () => {
     const parsedGroupedResponse = JSON.parse(groupedTodosResponse.text);
     const dueTodayCount = parsedGroupedResponse.duetodaytodos.length;
     const latestTodo = parsedGroupedResponse.duetodaytodos[dueTodayCount - 1];
-    let completedstatus=true;
+    let completedstatus = true;
     res = await agent.get("/todos");
     csrfToken = extractCsrfToken(res);
-    var response=await agent.put(`/todos/${latestTodo.id}`).send({
+    var response = await agent.put(`/todos/${latestTodo.id}`).send({
       _csrf: csrfToken,
       completed: completedstatus,
     });
     console.log(response.text);
-    var newparsedUpdateResponse=JSON.parse(response.text);
+    var newparsedUpdateResponse = JSON.parse(response.text);
     expect(newparsedUpdateResponse.completed).toBe(true);
-    completedstatus=false;
+    completedstatus = false;
     res = await agent.get("/todos");
     csrfToken = extractCsrfToken(res);
-    var response1=await agent.put(`/todos/${latestTodo.id}`).send({
+    var response1 = await agent.put(`/todos/${latestTodo.id}`).send({
       _csrf: csrfToken,
       completed: completedstatus,
     });
     console.log(response.text);
-    var newparsedUpdateResponse1=JSON.parse(response1.text);
+    var newparsedUpdateResponse1 = JSON.parse(response1.text);
     expect(newparsedUpdateResponse1.completed).toBe(false);
   });
 
