@@ -65,7 +65,7 @@ describe("Todo test suite", () => {
     const res = await agent.get("/todos");
     const csrfToken = extractCsrfToken(res);
     const response = await agent.post("/todos").send({
-      title: "Buy 1L of milk",
+      title: "Buy milk",
       dueDate: new Date().toISOString(),
       _csrf: csrfToken,
     });
@@ -78,13 +78,13 @@ describe("Todo test suite", () => {
     let res = await agent.get("/todos");
     let csrfToken = extractCsrfToken(res);
     await agent.post("/todos").send({
-      title: "Buy 1L of milk",
+      title: "Buy milk",
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
     });
     await agent.post("/todos").send({
-      title: "Buy Meat for Uncle",
+      title: "Buy ps3",
       dueDate: new Date().toISOString(),
       _csrf: csrfToken,
     });
@@ -135,7 +135,7 @@ describe("Todo test suite", () => {
     csrfToken = extractCsrfToken(res);
 
     await agent.post("/todos").send({
-      title: "Purchace bag for Mummy",
+      title: "Buy milk",
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
@@ -208,19 +208,19 @@ describe("Todo test suite", () => {
     let res = await agent.get("/todos");
     let csrfToken = extractCsrfToken(res);
     await agent.post("/todos").send({
-      title: "Buy packet of Laddoo",
+      title: "Buy xbox",
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
     });
     await agent.post("/todos").send({
-      title: "Buy Meat",
+      title: "Buy ps3",
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
     });
     await agent.post("/todos").send({
-      title: "Buy 1L of milk",
+      title: "Buy milk",
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
