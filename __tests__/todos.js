@@ -242,7 +242,6 @@ describe("Todo test suite", () => {
     const deletestatus = JSON.parse(deleteResponse.text);
     console.log("delete test");
     console.log(deletestatus);
-
     deletestatus
       ? expect(deletestatus).toBe(true)
       : expect(deletestatus).toBe(false);
